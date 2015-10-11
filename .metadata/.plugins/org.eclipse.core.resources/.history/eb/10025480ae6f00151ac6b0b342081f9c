@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+
+'''
+Created:     10/10/2015
+Last Update: 10/10/2015
+
+@author: Fabio Araujo
+'''
+
+class Equipe(models.Model):
+    
+  
+  
+  '''
+  equipe_id serial NOT NULL,
+  equipe_nome character varying(50) NOT NULL,
+  equipe_usuariorp character varying(50) NOT NULL,
+  equipe_data_registro date NOT NULL,
+  CONSTRAINT equipes_pkey PRIMARY KEY (equipe_id)
+  '''
+
+
+

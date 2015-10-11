@@ -1,0 +1,10 @@
+MODULES_MANAGER_V2
+cadastro.__init__|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/__init__.py
+cadastro.models|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/models.py
+cadastro.tests|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/tests.py
+cadastro.views|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/views.py
+encontro.__init__|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/__init__.py
+encontro.settings|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/settings.py
+encontro.urls|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/urls.py
+encontro.wsgi|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/wsgi.py
+manage|/home/engfabioaraujo/workspace/python/encontro/encontro/manage.py

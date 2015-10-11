@@ -1,0 +1,88 @@
+-- VERSION_4
+-- START DISKCACHE_2
+/home/engfabioaraujo/workspace/python/encontro/.metadata/.plugins/org.eclipse.core.resources/.projects/encontro/com.python.pydev.analysis/v2_indexcache
+cadastro.__init__|1444521124000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/__init__.py
+cadastro.models|1444526584000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/models.py
+encontro.wsgi|1444521017000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/wsgi.py
+encontro.urls|1444521667000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/urls.py
+cadastro.views|1444521795000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/views.py
+encontro.settings|1444522065000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/settings.py
+cadastro.tests|1444521798000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/cadastro/tests.py
+encontro.__init__|1444521017000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/__init__.py
+manage|1444521017000000000|/home/engfabioaraujo/workspace/python/encontro/encontro/manage.py
+-- END DISKCACHE
+-- START DICTIONARY
+16
+2=encontro.wsgi
+7=Foto
+5=Encontro
+16=Quarto
+8=Pagamento
+12=Cancelamento
+13=ParticipantesEquipe
+3=cadastro.models
+10=Observacao
+4=encontro.urls
+15=Equipe
+1=encontro.settings
+6=Participante
+11=Inscricao
+14=Orgao
+9=Despesa
+-- END DICTIONARY
+-- START TREE 1
+29
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+bas|1|BASE_DIR!11@
+can|1|Cancelamento!25@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+des|1|Despesa!25@
+enc|1|Encontro!25@
+equ|1|Equipe!25@
+fot|1|Foto!25@
+ins|2|INSTALLED_APPS!11@Inscricao!25@
+irm|1|irmao!27@
+lan|1|LANGUAGE_CODE!11@
+mid|1|MIDDLEWARE_CLASSES!11@
+nom|1|nome!27@
+obs|1|Observacao!25@
+org|1|Orgao!25@
+pag|1|Pagamento!25@
+par|4|Participante!25@ParticipantesEquipe!25@participante!27@ParticipantesIrmaos!25@
+qua|1|Quarto!25@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sta|1|STATIC_URL!11@
+tem|1|TEMPLATES!11@
+tim|1|TIME_ZONE!11@
+tip|1|TipoDespesa!25@
+url|1|urlpatterns!35@
+use|3|USE_L10N!11@USE_TZ!11@USE_I18N!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+21
+ano|1|ano!5&27@
+cam|1|camisa!6&27@
+coo|1|coordenacao!6&27@
+dat|3|data!7&27@data!8&27@data!9&27@
+des|3|descricao!10&27@descricao!7&27@descricao!9&27@
+enc|6|encerrado!5&27@encontro!7&27@encontro!11&27@encontro!8&27@encontro!12&27@encontro!9&27@
+equ|1|equipe!13&27@
+lid|1|lider!10&27@
+mot|1|motivo!12&27@
+nom|4|nome!14&27@nome!15&27@nome!16&27@nome!6&27@
+org|1|orgao!6&27@
+par|5|participante!13&27@participante!10&27@participante!11&27@participante!8&27@participante!12&27@
+pub|1|publica!7&27@
+qua|1|quarto!6&27@
+res|2|responsavel!16&27@responsavel!9&27@
+sex|1|sexo!6&27@
+tel|1|telefone!6&27@
+tem|1|tema!5&27@
+tip|1|tipo!9&27@
+vag|1|vagas!5&27@
+val|4|valor!5&27@valor!8&27@valor!9&27@valorDevolvido!12&27@
+-- END TREE

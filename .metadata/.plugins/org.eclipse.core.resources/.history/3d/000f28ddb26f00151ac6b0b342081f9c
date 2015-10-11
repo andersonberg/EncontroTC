@@ -1,0 +1,75 @@
+# -*- coding: utf-8 -*-
+
+'''
+Created:     10/10/2015
+Last Update: 10/10/2015
+
+@author: Fabio Araujo
+'''
+
+from django.db import models
+
+class Equipe(models.Model):
+    nome = models.CharField(max_length = 50)    
+
+class TipoDespesa(models.Model): 
+    nome = models.CharField(max_length = 50)
+
+class Orgao(models.Model):
+    nome = models.CharField(max_length = 50)
+
+class Quarto(models.Model):
+    nome = models.CharField(max_length = 50)
+    responsavel = models.ForeignKey(Participante)
+
+class Participante(models.Model):
+    nome = models.CharField(max_length = 50)
+    telefone = models.CharField(max_length = 15)
+    sexo = models.CharField(max_length = 1)
+    camisa = models.CharField(max_length = 2)
+    coordenacao = models.BooleanField()  
+    orgao = models.ForeignKey(Orgao)
+    quarto = models.ForeignKey(Quarto)
+
+class ParticipantesEquipe(models.Model):
+    equipe = models.ForeignKey(Equipe)     
+    participante = models.ForeignKey(Participante)
+
+class ParticipantesIrmaos(models.Model):        
+    participante = models.ForeignKey(Participante)
+    irmao = models.ForeignKey(Participante)
+       
+class Observacao(models.Model):
+    participante = models.ForeignKey(Participante)           
+    descricao = models.CharField(max_length = 255)
+    lider = models.ForeignKey(Participante)
+
+class Encontro(models.Model):
+    tema = models.CharField(max_length = 100)
+    ano = models.IntegerField()
+    vagas = models.IntegerField()
+    encerrado = models.BooleanField
+    valor = models.DecimalField
+    
+
+class Inscricao(models.Model):
+    
+
+
+CREATE TABLE inscricoes
+(
+  inscricao_id serial NOT NULL,
+  inscricao_encontro_id integer NOT NULL,
+  inscricao_participante_id integer NOT NULL,
+  CONSTRAINT inscricoes_pkey PRIMARY KEY (inscricao_id, inscricao_encontro_id),
+  CONSTRAINT inscricoes_inscricao_encontro_id_fkey FOREIGN KEY (inscricao_encontro_id)
+      REFERENCES encontros (encontro_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT inscricoes_inscricao_participante_id_fkey FOREIGN KEY (inscricao_participante_id)
+      REFERENCES participantes (participante_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+     
+     
+    

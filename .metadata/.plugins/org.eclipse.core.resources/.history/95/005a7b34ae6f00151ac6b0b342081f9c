@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+
+'''
+Created:     10/10/2015
+Last Update: 10/10/2015
+
+@author: Fabio Araujo
+'''
+
+class Equipe(models.Model):
+    
+
+
+

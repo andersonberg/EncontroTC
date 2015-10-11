@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;encontro/encontro/cadastro.py&apos;" deleteContents="false" description="Delete resource &apos;encontro/encontro/cadastro.py&apos;" element1="/encontro/encontro/cadastro.py" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1444521520382"/>&#x0A;<refactoring comment="Delete resource &apos;encontro/cadastro/models.py&apos;" deleteContents="false" description="Delete resource &apos;encontro/cadastro/models.py&apos;" element1="/encontro/cadastro/models.py" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1444521574278"/>
+</session>
