@@ -1,0 +1,156 @@
+# -*- coding: utf-8 -*-
+
+'''
+Created:     10/10/2015
+Last Update: 10/10/2015
+
+@author: Fabio Araujo
+'''
+
+from django.db import models
+from django.conf import settings
+from django.utils import timezone
+
+class Orgao(models.Model):
+    nome = models.CharField(max_length = 50, unique=True)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.nome    
+    
+class Equipe(models.Model):
+    nome = models.CharField(max_length = 50, unique=True)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.nome 
+
+class Quarto(models.Model):
+    nome = models.CharField(max_length = 50, unique=True)
+    #responsavel = models.ForeignKey(Participante)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.nome
+
+class Participante(models.Model):
+    
+    MASCULINO = 'M'
+    FEMININO = 'F'    
+    SEXO = (
+        (MASCULINO, 'Masculino'),
+        (FEMININO, 'Feminino'),       
+    )
+    
+    nome = models.CharField(max_length = 50)
+    telefone = models.CharField(max_length = 15)
+    email = models.EmailField(max_length=100, unique=True)
+    sexo = models.CharField(max_length=1, choices=SEXO, default=MASCULINO)
+    camisa = models.CharField(max_length = 2)
+    coordenacao = models.BooleanField(default=False)
+    foto = models.FileField(upload_to=None, max_length=100)
+    irmaos = models.ManyToManyField("self")
+    orgao = models.ForeignKey(Orgao)
+    quarto = models.ForeignKey(Quarto)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    data_alteracao = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.nome
+    
+class ParticipantesEquipe(models.Model):
+    participante = models.ForeignKey(Participante)
+    equipe = models.ForeignKey(Equipe)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.participante + " - " + self.equipe
+
+'''
+class ParticipantesIrmaos(models.Model):        
+    participante = models.ForeignKey(Participante)
+    irmao = models.ForeignKey(Participante)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.participante + " - " + self.irmao
+'''
+           
+class Observacao(models.Model):
+    participante = models.ForeignKey(Participante)           
+    descricao = models.CharField(max_length = 255)
+    lider = models.ForeignKey(Participante)    
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.participante + " - " + self.descricao
+
+
+class Encontro(models.Model):
+    tema = models.CharField(max_length = 100)
+    ano = models.IntegerField(default=timezone.datetime.year)
+    vagas = models.IntegerField(default=150)
+    encerrado = models.BooleanField(default=False)
+    valor = models.DecimalField(default=150)    
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.ano + " - " + self.tema
+
+class Foto(models.Model):
+    encontro = models.ForeignKey(Encontro)
+    descricao = models.CharField(max_length = 50)
+    data = models.DateTimeField(default=timezone.now)
+    publica = models.BooleanField(default=False)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.data + " - " + self.descricao
+     
+class Inscricao(models.Model):
+    encontro = models.ForeignKey(Encontro)
+    participante = models.ForeignKey(Participante)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    class Meta:
+        primary_keys = (('encontro', 'participante'),)
+
+class Pagamento(models.Model):
+    inscricao = models.ForeignKey(Inscricao)
+    valor = models.DecimalField()
+    data = models.DateTimeField(default=timezone.now)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+
+class Cancelamento(models.Model):
+    inscricao = models.ForeignKey(Inscricao)
+    motivo = models.CharField(max_length = 100)
+    valorDevolvido = models.DecimalField()
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+
+class TipoDespesa(models.Model): 
+    nome = models.CharField(max_length = 50)
+    usuariorp = models.ForeignKey(settings.AUTH_USER_MODEL, default=0)
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.nome
+
+class Despesa(models.Model):
+    encontro = models.ForeignKey(Encontro)
+    tipo = models.ForeignKey(TipoDespesa)
+    descricao = models.CharField(max_length = 100)
+    valor = models.DecimalField
+    responsavel = models.ForeignKey(Participante)
+    data = models.DateField

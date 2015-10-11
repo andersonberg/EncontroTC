@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+
+'''
+Created:     10/10/2015
+Last Update: 10/10/2015
+
+@author: Fabio Araujo
+'''
+
+
+from django.db import models
+from django.utils import timezon
+
+class Orgao(models.Model):
+    nome = models.CharField(max_length = 50)
+    usuariorp = models.ForeignKey('auth.User')
+    data_registro = models.DateTimeField(default=timezone.now)
+    
+  #orgao_id integer NOT NULL DEFAULT nextval('orgao_orgao_id_seq'::regclass),
+  #orgao_nome character varying(50) NOT NULL,
+  #orgao_usuariorp character varying(50) NOT NULL,
+  #orgao_data_registro date NOT NULL,
+  #CONSTRAINT orgao_pkey PRIMARY KEY (orgao_id)
+    
+class Equipe(models.Model):
+    nome = models.CharField(max_length = 50)    
+
+'''
+class Quarto(models.Model):
+    nome = models.CharField(max_length = 50)
+    responsavel = models.CharField(max_length = 50) #models.ForeignKey(Participante)
+
+class Participante(models.Model):
+    nome = models.CharField(max_length = 50)
+    telefone = models.CharField(max_length = 15)
+    sexo = models.CharField(max_length = 1)
+    camisa = models.CharField(max_length = 2)
+    coordenacao = models.BooleanField  
+    orgao = models.ForeignKey(Orgao)
+    quarto = models.ForeignKey(Quarto)
+
+class ParticipantesEquipe(models.Model):
+    equipe = models.ForeignKey(Equipe)     
+    participante = models.ForeignKey(Participante)
+
+class ParticipantesIrmaos(models.Model):        
+    participante = models.ForeignKey(Participante)
+    irmao = models.ForeignKey(Participante)
+       
+class Observacao(models.Model):
+    participante = models.ForeignKey(Participante)           
+    descricao = models.CharField(max_length = 255)
+    lider = models.ForeignKey(Participante)
+
+class Encontro(models.Model):
+    tema = models.CharField(max_length = 100)
+    ano = models.IntegerField
+    vagas = models.IntegerField
+    encerrado = models.BooleanField
+    valor = models.DecimalField
+
+class Foto(models.Model):
+    encontro = models.ForeignKey(Encontro)
+    descricao = models.CharField(max_length = 50)
+    data = models.DateField
+    publica = models.BooleanField
+        
+class Inscricao(models.Model):
+    encontro = models.ForeignKey(Encontro)
+    participante = models.ForeignKey(Participante)
+
+class Pagamento(models.Model):
+    #Descobrir como Recuperar uma ForeignKey Composta 
+    encontro = models.ForeignKey(Encontro)
+    participante = models.ForeignKey(Participante)
+    valor = models.DecimalField
+    data = models.DateField
+
+class Cancelamento(models.Model):
+    #Descobrir como Recuperar uma ForeignKey Composta
+    encontro = models.ForeignKey(Encontro)
+    participante = models.ForeignKey(Participante)
+    motivo = models.CharField(max_length = 100)
+    valorDevolvido = models.DecimalField
+
+class TipoDespesa(models.Model): 
+    nome = models.CharField(max_length = 50)
+
+class Despesa(models.Model):
+    encontro = models.ForeignKey(Encontro)
+    tipo = models.ForeignKey(TipoDespesa)
+    descricao = models.CharField(max_length = 100)
+    valor = models.DecimalField
+    responsavel = models.ForeignKey(Participante)
+    data = models.DateField
+'''

@@ -1,0 +1,19 @@
+from django.contrib import admin
+from .models import Orgao, Quarto, Equipe, Participante, Observacao
+from .models import Encontro, Inscricao, Pagamento, Cancelamento, Foto
+from .models import TipoDespesa, Despesa
+
+admin.site.register(Participante)
+admin.site.register(Orgao)
+admin.site.register(Quarto)
+admin.site.register(Equipe)
+admin.site.register(Observacao)
+
+admin.site.register(Encontro)
+admin.site.register(Inscricao)
+admin.site.register(Pagamento)
+admin.site.register(Cancelamento)
+admin.site.register(Foto)
+
+admin.site.register(TipoDespesa)
+admin.site.register(Despesa)
