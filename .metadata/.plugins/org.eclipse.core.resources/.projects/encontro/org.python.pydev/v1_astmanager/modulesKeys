@@ -5,6 +5,11 @@ encontro.urls|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/u
 encontro.wsgi|/home/engfabioaraujo/workspace/python/encontro/encontro/encontro/wsgi.py
 gerenciamento.__init__|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/__init__.py
 gerenciamento.admin|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/admin.py
+gerenciamento.migrations.0001_initial|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/migrations/0001_initial.py
+gerenciamento.migrations.0002_auto_20151011_1309|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/migrations/0002_auto_20151011_1309.py
+gerenciamento.migrations.0003_auto_20151011_1540|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/migrations/0003_auto_20151011_1540.py
+gerenciamento.migrations.0004_auto_20151011_1542|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/migrations/0004_auto_20151011_1542.py
+gerenciamento.migrations.0005_auto_20151011_1559|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/migrations/0005_auto_20151011_1559.py
 gerenciamento.migrations.__init__|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/migrations/__init__.py
 gerenciamento.models|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/models.py
 gerenciamento.tests|/home/engfabioaraujo/workspace/python/encontro/encontro/gerenciamento/tests.py

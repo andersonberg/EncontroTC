@@ -1,0 +1,71 @@
+{% load admin_static %}{% load firstof from future %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sistema para Gerencimento do Encontro de Jovens do Templo Central da Assembléia de Deus de Pernambuco.">
+<title>{{ title }} | 'Encontro de Jovens'</title>
+
+<link rel="stylesheet" type="text/css" href="{% static "admin/pure-layout/css/pure-min.css" %}" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="{% static "admin/pure-layout/css/grids-responsive-old-ie-min.css" %}" />  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<link rel="stylesheet" type="text/css" href="{% static "admin/pure-layout/css/grids-responsive-min.css" %}" />
+<!--<![endif]-->
+<link rel="stylesheet" type="text/css" href="{% static "admin/pure-layout/css/font-awesome.css" %}" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" href="{% static "admin/pure-layout/css/layouts/marketing-old-ie.css" %}" />
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<link rel="stylesheet" type="text/css" href="{% static "admin/pure-layout/css/layouts/marketing.css" %}" />
+<!--<![endif]-->
+<script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+
+{% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors or form.this_is_the_login_form.errors %}
+{% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+
+<div class="splash-container">
+<div class="splash">                        
+    <div class="pure-u-1 pure-u-md-2-3">                                
+        <img src="{% static "admin/pure-layout/img/logo1.png" %}" />
+        <form class="pure-form pure-form-stacked" action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}                    
+            <fieldset>                                                                
+		{% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}                
+		{{ form.username }} 
+		{% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+		{{ form.password }}
+		<input type="hidden" name="this_is_the_login_form" value="1" />
+		<input type="hidden" name="next" value="{{ next }}" />
+                <button type="submit" class="pure-button pure-button-one">{% trans 'Log in' %}</button>
+            </fieldset>     
+	    {% url 'admin_password_reset' as password_reset_url %}
+            {% if password_reset_url %}
+	    <div class="password-reset-link">
+	    	<a href="{{ password_reset_url }}">{% trans 'Forgotten your password or username?' %}</a>
+	    </div>
+	    {% endif %}               
+        </form>                		
+    </div>           
+</div>
+</div>     
+</body>
+</html>

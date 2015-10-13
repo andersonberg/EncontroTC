@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Encontro de Jovens 2016' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Encontro de Jovens 2016' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

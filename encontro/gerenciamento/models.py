@@ -10,7 +10,6 @@ Last Update: 11/10/2015
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from datetime import date
 
 class Orgao(models.Model):
     nome = models.CharField(max_length = 50, unique=True)
@@ -96,7 +95,7 @@ class Encontro(models.Model):
     data_registro = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return self.ano + " - " + self.tema
+        return str(self.ano) + " - " + self.tema
 
 class Foto(models.Model):
     encontro = models.ForeignKey(Encontro)

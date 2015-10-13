@@ -1,1 +1,5 @@
-DELSTRgerenciamento.models
+INSTUPadmin.views.decorators
+/home/engfabioaraujo/workspace/python/encontro/encontro/admin/views/decorators.py
+INFOS:&&2|1|2|0
+staff_member_required=1
+admin.views.decorators=2
